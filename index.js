@@ -12,7 +12,7 @@ const pathToRoot = process.cwd();
 const pathToPackage = argv.pathToPackage || `${pathToRoot}/package.json`;
 const info = helpers.getPackageInfo(pathToPackage);
 
-const pathToPlist = argv.pathToPlist || `${pathToRoot}/ios/${info.name}/Info.plist`;
+const pathToPlist = argv.pathToPlist || `${pathToRoot}/ios/${helpers.removeSkewer(info.name)}/Info.plist`;
 const pathToGradle = argv.pathToGradle || `${pathToRoot}/android/app/build.gradle`;
 // handle case of several plist files
 const pathsToPlists = Array.isArray(pathToPlist) ? pathToPlist : [pathToPlist];
